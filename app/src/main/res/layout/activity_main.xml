@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logoimg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageButton
+        android:id="@+id/photobtn"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@android:color/white"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/photobtn" />
+
+    <ImageButton
+        android:id="@+id/callbtn"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@android:color/white"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/callbtn" />
+
+    <Button
+        android:id="@+id/editbtn"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textStyle="bold"
+        android:textSize="10pt"
+        android:text="내 정보 수정하기" />
+
+    <SurfaceView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
