@@ -8,6 +8,31 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/button_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="평상시 데이터 수집하기"/>
+
+    <SeekBar
+        android:id="@+id/sense_sb"
+        android:layout_width="340dp"
+        android:layout_height="89dp"
+        android:max="20"
+        android:min="14"/>
+
+    <TextView
+        android:id="@+id/sense_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.6 (default)" />
+
+    <Button
+        android:id="@+id/test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="공포 데이터 시작" />
+
     <ImageView
         android:id="@+id/logoimg"
         android:layout_width="match_parent"
