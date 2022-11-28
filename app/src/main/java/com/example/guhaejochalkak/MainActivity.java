@@ -22,9 +22,11 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.normal.TedPermission;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,10 +44,29 @@ public class MainActivity extends AppCompatActivity {
     int temp = 0;
     boolean fear_flag = false;
 
+    PermissionListener permissionlistener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(List<String> deniedPermissions) {
+            Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TedPermission.create()
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(Manifest.permission.CAMERA)
+                .check();
+
 
         call_btn = (ImageButton)findViewById(R.id.callbtn);
         record_btn = (ImageButton) findViewById(R.id.photobtn);
@@ -84,18 +105,6 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                 }
-
-
-                //112 전화걸기
-                call_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:112"));
-                        startActivity(intent);
-                    }
-                });
             }
         });
 
